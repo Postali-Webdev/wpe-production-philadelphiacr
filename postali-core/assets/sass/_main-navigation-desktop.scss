@@ -1,0 +1,244 @@
+
+// keyframes for desktop sub-nav
+
+@keyframes fadein{
+    0% { opacity:0; top:64px; }
+    100% { opacity:1; top:74px; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; top:64px; }
+    100% { opacity:1; top:74px; }
+}
+
+
+header {    
+    #header-top {
+        &_right {
+            &_menu {
+                display: flex;
+                align-items: center;
+                
+                #menu-main-menu {
+                    list-style-type: none;
+                    display: flex;
+                    padding-bottom:0 !important;
+                    align-items: center;
+                    margin-left: 0;
+
+                    li {
+                        display: flex;
+                        margin-left:5px;
+                        position: relative;
+                        height: auto;
+
+                        .accordion-toggle,
+                        .accordion-toggle2 {
+                            display:none;
+                        }
+
+                        &:not(.menu-item-search) {
+                            &.disable {
+                                opacity: 0.5;
+                                pointer-events: none;
+                            }
+                        }
+
+                        // hover states to display sub-menu
+                        &:hover, 
+                        > a:focus ~, 
+                        > a:focus-visible ~ {
+                            a {                                
+                                &:before {
+                                    right: 20px;
+                                }
+                            }
+
+                            .sub-menu {
+                                display:block;
+                                z-index: 0;
+                                -webkit-animation: .3s ease 0s normal forwards 1 fadein;
+                                animation: .3s ease 0s normal forwards 1 fadein;
+
+                                li {
+                                    a {
+                                        background:none;
+                                    }
+
+                                    // nested 3rd level flyout
+                                    .sub-menu {
+                                        display:none;
+                                        position: absolute;
+                                        top: 0 !important;
+                                        margin-left: 100%;
+
+                                        &:hover {
+                                            display:block;
+                                        }
+                                    }
+                                }
+
+                                .tertiary-close {
+                                    display:none;
+                                }
+                            }
+                        }
+
+                        // active menu states for current page / current parent
+                        &.current-menu-parent,
+                        &.current-menu-item,
+                        &.current-page-ancestor {
+                            a {
+
+                                &:before {
+                                    right: 20px;
+                                    bottom: 0;
+                                    display:block !important;
+                                }
+                            }
+
+                            &:hover {
+                                .sub-menu {
+                                    left:0;
+
+                                    .current_page_item {
+                                        a {
+                                            color:$ltblue !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.nav-contact {
+                            margin:0 12px 0 30px;
+
+                            @include respond(desktop) {
+                                margin:0 10px 0 20px;
+                            }
+                            
+                            a {
+                                padding: 12px 40px !important;
+                                transition: 0.2s linear;
+                                border-radius: 10px;
+
+                                @include respond(desktop) {
+                                    padding:12px 35px !important;
+                                }
+    
+                                &::before {
+                                    display:none !important;
+                                }
+                            }
+                        }
+
+                        &.nav-numbers {
+                            display:none;
+                            position: relative;
+                            margin-left: 15px;
+
+                            &::before {
+                                content: "\e900";
+                                font-family: $icomoon;
+                                color: $ltblue;
+                                position: absolute;
+                                line-height: 0;
+                                top: 37px;
+                                left: -10px;
+                            }
+                        }
+
+                        a {
+                            padding:30px 10px;
+                            font-size: 13px;
+                            font-weight:500 !important;
+                            display: flex;
+                            align-items: center;
+                            z-index: 1;
+                            font-weight: bold;
+                            color:$white;
+                            text-transform: uppercase;
+                            font-family: "Montserrat", sans-serif;
+                            white-space: nowrap;
+
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                z-index: -1;
+                                left: 20px;
+                                right: 100%;
+                                bottom: 0;
+                                background: $ltblue !important;
+                                height: 4px;
+                                transition-property: right;
+                                transition-duration: 0.3s;
+                                transition-timing-function: ease-out;
+                            }
+                        }
+
+                        .sub-menu {
+                            width: auto;
+                            white-space: nowrap;
+                            transition: $trans;
+                            position: absolute;
+                            overflow: visible;
+                            background: $blk;
+                            z-index: 500;
+                            margin: 0;
+                            padding: 0;
+                            display: none;
+                            width: auto;
+                            top:25px;
+                            padding:10px;
+
+                            .child-close {
+                                display:none;
+                            }
+
+                            li {
+                                margin-left: 0;
+                                
+                                &:hover {
+                                    background: none;
+                                    transition: $trans;
+
+                                    @include respond(tab-port) {
+                                        background:none;
+                                    }
+                                    
+                                    .sub-menu {
+                                        display:block;
+                                        margin-top: -10px;
+                                    }
+                                }
+
+                                a {
+                                    padding:10px 15px;
+                                    font-size: 13px;
+
+                                    &:hover {
+                                        color:$ltblue !important;
+                                    }
+
+                                    &::before {
+                                        display:none !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    @include nav-search-desktop;
+                }
+
+                #mobile-sub-close {
+                    display:none;
+                }
+
+                #header-top_mobile {
+                    display:none;
+                }
+            }
+        }
+    }
+}
