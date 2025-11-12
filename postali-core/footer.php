@@ -72,6 +72,7 @@
                         </div>
                         <div class="locations">
                             <p><strong>Other County Offices</strong></p>
+                            <nav>
                             <?php
                                 $args = array(
                                     'container' => false,
@@ -79,6 +80,7 @@
                                 );
                                 wp_nav_menu( $args );
                             ?>	
+                            </nav>
                         </div>
                         <div class="county">
 
@@ -106,6 +108,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column-full">
+                    <nav>
                     <?php
                         $args = array(
                             'container' => false,
@@ -113,6 +116,7 @@
                         );
                         wp_nav_menu( $args );
                     ?>	
+                    </nav>
                     <p class="disclaimer"><?php the_field('disclaimer_text','options'); ?></p>
                     <?php if(is_page_template('front-page.php')) { ?>
                     <a href="https://www.postali.com" title="Site design and development by Postali" target="blank"><img src="https://www.postali.com/wp-content/themes/postali-site/img/postali-tag.png" alt="Postali | Results Driven Marketing" style="display:block; max-width:250px; margin:0 0 20px 0;"></a>
