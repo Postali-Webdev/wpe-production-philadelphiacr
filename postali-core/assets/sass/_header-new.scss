@@ -6,6 +6,10 @@ header {
     display:flex;
     height:75px;
     transition: $trans;
+
+    .mobile-call {
+        display:none;
+    }
     
     #header-top {
         display: flex;

@@ -92,6 +92,10 @@ body {
 		margin-top:76px;
 	}
 
+    @include respond(phone) {
+		margin-top: 115px;
+	}
+
     .main-content {
         h2 {
             &:first-of-type {

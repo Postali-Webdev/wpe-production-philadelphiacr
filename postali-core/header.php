@@ -57,6 +57,25 @@ endif; ?>
     <!-- End Google Tag Manager (noscript) -->
 
 	<header>
+        <?php if(is_tree('2275')) { 
+            $contact_phone = get_field('bucks_phone','options');
+        } elseif (is_tree('2280')) { 
+            $contact_phone = get_field('montgomery_county_phone','options');
+        } elseif (is_tree('2277')) { 
+            $contact_phone = get_field('delaware_county_phone','options');
+        } elseif (is_tree('2286')) { 
+            $contact_phone = get_field('downtown_philadelphia_phone','options');
+        } else {
+            $contact_phone = get_field('phone_number','options');
+        } ?>
+        <a class="mobile-call" href="tel:<?php echo $contact_phone; ?>" >
+            <div class="mobile-call-left">
+                <span class="icon-phone"></span> <span class="mobile-call-text">Call Now</span>
+            </div>
+            <div class="mobile-call-right">
+                <?php echo $contact_phone; ?>
+            </div>
+        </a>
 		<div id="header-top" class="container">
 			<div id="header-top_left">
 				<?php the_custom_logo(); ?>

@@ -21,15 +21,65 @@
     }
    
     header {    
-        height:96px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 96px;
+
+        @include respond(phone) {
+            height:auto;
+            
+            .mobile-call {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: $ltblue;
+                padding: 12px 25px;
+                font-family: $montserrat;
+                font-size: 15px;
+                font-weight: bold;
+                color: $white;
+                text-transform: uppercase;
+
+                .mobile-call-left {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .icon-phone {
+                        height: 22px;
+                        width: 22px;
+                        display: inline-flex;
+                        line-height: 0;
+                        background: $white;
+                        border-radius: 50px;
+
+                        &::before {
+                            content: "\e900";
+                            display: flex;
+                            width: 22px;
+                            height: 22px;
+                            justify-content: center;
+                            align-items: center;
+                            color: $ltblue;
+                        }
+                    }
+                }
+            }
+        }
         
         #header-top {
             max-width: 100%;
             padding:0 30px !important;
 
+            @include respond(phone) {
+                height: 96px;
+            }
+
             &_left {
                 width:auto;
                 justify-content: flex-start;
+                min-width: 250px;
                 
                 a {
                     img {
