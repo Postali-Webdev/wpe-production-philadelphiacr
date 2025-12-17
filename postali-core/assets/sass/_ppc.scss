@@ -261,6 +261,11 @@
         .author {
             font-family: $sans !important;
         }
+        #testimonial-slider {
+            @include respond(phone) {
+                margin: 0 auto !important;
+            }
+        }
     }
     .sm-blue {
         color: $indigo;
