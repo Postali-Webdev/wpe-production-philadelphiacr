@@ -113,6 +113,13 @@ endif; ?>
 				</div>
 			</div>
 		</div>
+
+        <?php if( is_singular('ppc')) : ?>
+            <div class="ppc-contact-header">
+                <p>Call Or Text For A <strong>Free Consultation</strong></p>
+                <a class="btn" href="tel:<?php echo $contact_phone; ?>"><?php echo $contact_phone; ?></a>
+            </div>
+        <?php endif; ?>
 	</header> 
 
     <span id="main-content"></span>
