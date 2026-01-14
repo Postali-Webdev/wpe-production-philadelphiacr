@@ -696,7 +696,7 @@
 }
 
 @mixin awards-slider {
-    #awards {
+    #awards, #hp-awards {
         z-index: 0;
         display:grid;
         margin:0 5%;
@@ -732,6 +732,29 @@
         }
 
         @include slick-arrows;
+    }
+
+    #hp-awards {
+        background: $white;
+        margin: 30px 0 0 0;
+        .slick-prev, .slick-next {
+            top: 50%;
+            &:before {
+                font-size: 20px;
+            }
+        }
+        .slick-prev {
+            left: 5px;
+        }
+        .slick-next {
+            right: 5px;
+        }
+        .award-description {
+            margin: 0;
+        }
+        .slick-list {
+            padding: 20px;
+        }
     }
 }
 

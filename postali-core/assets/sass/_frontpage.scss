@@ -10,7 +10,6 @@
         section {
             &.homepage {
                 padding: 50px 0;
-    
                 .top {
                     h1 {
                         margin-top: 0 !important;
@@ -49,14 +48,6 @@
                         }
                     }
     
-                    .subheadline {
-                        font-family: "Montserrat", sans-serif !important;
-                        letter-spacing: 4px;
-                        text-transform: uppercase;
-                        font-size: 16px;
-                        font-weight: 600;
-                        line-height: 140%;
-                    }
                 }
             }
 
@@ -67,288 +58,247 @@
     }
 
     #hp-banner {
-        height: 80vh;
+        display: flex;
+        align-items: center;
         min-height: 800px;
         background-size: cover;
-        background-position: center;
-
+        background-position: top;
         @include respond(tab-port) {
             min-height: auto;
             height: 400px;
+            transform: scaleX(-1);
+            transform-origin: center;
+            padding: 30px 0;
+            & > * {
+                transform: scaleX(-1);
+            }
         }
-
-        @include respond(phone) {
-            min-height: auto;
-            height: 230px;
-        }
-    }
-
-    #hp-box {
-        position: absolute;
-        top: 12vh;
-        width: 400px;
-        right: 5%;
-        box-sizing: border-box;
-        padding: 0;
-
-        @include respond(tab-land) {
-            width: 380px;
-        }
-
         @include respond(tab-port) {
-            position: relative;
-            top: 0;
-            width: 100% !important;
-            right: 0;
-            box-sizing: border-box;
-            padding: 0;
-        }
-
-        .container {
-            padding: 0 !important;
-
-            .columns {
-                box-shadow: -6px 0px 9px -4px rgba(0, 0, 0, 0.35);
-            }
-
-            #box-why {
-                background: #3d3d3d;
-                padding: 40px 40px 20px;
-
-                img {
-                    max-width: 275px;
-                }
-
-                .accordions {
-                    width:100%;
-                    position: relative;
-                    
-                    &_title {
-                        display: flex;
-                        cursor: pointer;
-                        padding: 17px 20px;
-                        transition: 0.3s linear;
-                        text-align: left;
-                        align-items: center;
-                        line-height: 100%;
-                        position: relative;
-                        background:$white;
-                        margin: 0 0 10px 0 !important;
-                        border-left: 4px solid $ltblue;
-
-                        &:hover {
-                            h3 {
-                                text-decoration: underline;
-                            }
-                        }
-                
-                        &::after {
-                            position: absolute;
-                            top:14px;
-                            right:20px;
-                            content:"+";
-                            color:$ltblue;
-                            font-size: 24px;
-                            transition: $trans;
-                        }
-                
-                        p {
-                            display:none;
-                        }
-                
-                        h3 {
-                            font-size:14px !important;
-                            font-weight:700;
-                            font-style:normal !important;
-                            color:$blk !important;
-                            transition:$trans;
-                            margin-bottom:0 !important;
-                            margin-top:0;
-                            font-family: "Raleway", sans-serif;
-                            max-width: 90%;
-                            margin:0 !important;
-                        }
-                        
-                        &.active {
-                            h3 {
-                                font-weight: bold;
-                            }
-                
-                            &::after {
-                                    transform: rotate(-45deg);
-                                    right: 21px;
-                                }
-                
-                            h3 {
-                                font-weight: 900 !important;
-                            }
-                        }
-                    }
-                
-                    &_content {
-                        display: none;
-                        padding: 10px 20px 20px;
-                        text-align: left;
-                        width:100%;
-                        box-sizing: border-box;
-                
-                        p {
-                            color:$white;
-                            font-family: "Raleway", sans-serif;
-                            font-size: 14px;
-                            margin-bottom: 0;
-                            line-height: 140%;
-    
-                            a {
-                                color:inherit;
-                            }
-                        }
-                
-                        ul {
-                            color:$white;
-                            margin: 0 0 20px 10px;
-                
-                            li {
-                                margin:0;
-                            }
-                        }
-    
-                        // search form
-                        form.box_form {
-                            margin-top: 15px;
-    
-                            input {
-                                width:100%;
-                                padding: 10px;
-                                box-sizing: border-box;
-                            }
-                        }
-                    }
-                }
-            }
-
-            #box-cta {
-                background: $ltblue;
-                padding: 5px 40px;
-                text-align: center;
-                display:block;
-
-                p {
-                    font-style: italic;
-                    padding: 0;
-                    margin:10px 0;
-                    line-height: 100%;
-                }
-
-                a {
-                    color: $white;
-                    font-family: "Montserrat", sans-serif !important;
-                    font-size: 40px;
-                    line-height: 80%;
-                    font-weight: bold;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-
-            #hp-results {
-                background: #fff;
-                height: auto;
-                min-height: 467px;
+            min-height: auto;
+            height: 100%;
+            padding: 30px 0;        
+            background-size: 900px 416px;
+            background-position: top center;
+            &:after {
+                content: "";
                 position: absolute;
                 z-index: -1;
-                left: -90%;
-                transform: translateX(85%);
-                transition: 0.2s linear;
-                padding: 50px 40px 30px 60px;
-                box-sizing: border-box;
-                width: 90%;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: calc(100% - 416px);
+                background: $ltgrey;
+            }
+        }
+        .column-full {
+            display: block;
+            width: 50%;
+            margin: 0px 60px 0 auto;
+            @include respond(tab-port) {
+                width: 100%;
+                margin: 0 30px;
 
-                &.opened {
-                    transform: translateX(0);
+            }
+            .row1 {
+                margin-bottom: 30px;
+                @include respond(tab-port) {
+                    width: 80%;
+                    margin: 0 auto 30px 0;
                 }
-
-                #results_headline {
-                    position: absolute;
-                    transform: rotate(-90deg);
-                    left: -188px;
-                    font-family: "Raleway", sans-serif;
+                @include respond(phone) {
+                    width: 80%;
+                }
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                }
+                h1 {
+                    margin-bottom: 30px;
+                    @include respond(tab-land) {
+                        margin-bottom: 15px;
+                    }
+                }
+                .subheadline {
+                    font-family: "Montserrat", sans-serif !important;
+                    letter-spacing: 4px;
+                    text-transform: uppercase;
                     font-size: 26px;
-                    line-height: 100%;
-                    font-weight: bold;
-                    bottom: 225px;
-                    width: 430px;
-                    display: block;
-
-                    &::after {
-                        content: "\e903";
-                        font-family: $icomoon;
-                        color: $blk;
-                        position: relative;
-                        margin-left: 20px;
-                        font-size: 20px;
+                    font-weight: 600;
+                    color: $white;
+                    line-height: 140%;
+                    @include respond(tab-land) {
+                        font-size: 18px;
+                    }
+                    @include respond(phone) {
+                        font-size: 14px;
                     }
                 }
-
-                .results_content {
-                    p {
-                        color:$blk;
-
-                        &.headline {
-                            font-size: 22px;
-                            margin:0 0 20px;
+            }
+            .row2 {
+                display: flex;
+                justify-content: flex-start;
+                align-items: stretch;
+                column-gap: 40px;
+                row-gap: 10px;
+                padding-bottom: 50px;
+                margin-bottom: 50px;
+                border-bottom: solid 1px $white;
+                @include respond(desktop) {
+                    flex-direction: column;
+                }
+                @include respond(tab-port) {
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                    border-bottom: 0;
+                    margin-top: 100px;
+                    width: 80%;
+                    margin: 0 auto 0 0;
+                }
+                @include respond(phone) {
+                    width: 100%;
+                }
+                .inner-col {
+                    &:first-of-type {
+                        border-right: solid 1px $white;
+                        padding-right: 40px;
+                        flex-shrink: 0;
+                        @include respond(desktop) {
+                            border-right: 0;
+                            padding-right: 0;
                         }
-                    }
-
-                    ul {
-                        list-style-type: none;
-
-                        li {
-                            margin-bottom: 15px !important;
-
-                            p.date {
-                                margin:0 !important;
-                                font-weight: bold;
+                        .btn {
+                            font-weight: $bold;
+                            font-size: 30px;
+                            @include respond(tab-land) {
+                                font-size: 18px;
                             }
                         }
                     }
-
-                    a.more-results {
-                        position: absolute;
-                        bottom: 30px;
-                        font-size: 16px;
-                        font-family: "Raleway", sans-serif;
-                        font-style: italic;
-                        color: $dkblue;
-                        text-decoration: underline;
-                        right: 40px;
-
-                        &:hover {
-                            text-decoration: none;
+                    &:last-of-type {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        p {
+                            margin: 0;
+                            &:first-of-type {
+                                font-weight: $bold;
+                            }
+                            &:last-of-type {
+                                font-style: italic;
+                            }
                         }
                     }
                 }
-                
+            }
+            .row3 {
                 @include respond(tab-port) {
-                    display: none;
+                    position: relative;
+                    z-index: 2;
+                    width: 100%;
+                    margin-top: 140px;
+                    margin-bottom: -100px;
+                }
+                @include respond(phone) {
+                    margin-top: 110px;
+                }
+                & > p:first-of-type {
+                    font-weight: $bold;
+                    font-size: 20px;
+                    @include respond(tab-port) {
+                        color: $blk !important;
+                    }
+                }
+                .accordions {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    margin-bottom: 30px;
+                    @include respond(tab-land) {
+                        flex-direction: column;
+                    }
+                    &_wrapper {
+                        width: 30%;
+                        min-width: 250px;
+                        background: $white;
+                        @include respond(tab-land) {
+                            width: 100%;   
+                        }
+                        .accordions_title {
+                            background: $white;
+                            padding: 15px 30px 15px 15px;
+                            border-left: solid 5px $ltblue;
+                            position: relative;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            height: -webkit-fill-available;
+                            height: fill-available;
+                            height: -moz-fill-available;
+                            min-height: 40px;
+                            cursor: pointer;
+                            @include respond(tab-land) {
+                                min-height: 20px;
+                                height: 20px;
+                                max-height: 100%;
+                            }
+                            &:after {
+                                content: "+";
+                                position: absolute;
+                                right: 15px;
+                                font-size: 26px;
+                                color: $ltblue;
+                                height: 30px;
+                                width: 15px;
+                            }
+                    
+                            h3 {
+                                font-size: 16px;
+                                font-weight: $bold;
+                                color: $blk;
+                                margin: 0 !important;
+                            }
+                        }
+                    
+                        .accordions_content {
+                            display: none;
+                            padding: 15px;
+                            border-left: solid 5px $ltblue;
+                            & > * {
+                                color: $blk !important;
+                            }
+                            .box_form {
+                                input {
+                                    width: 100%;
+                                    padding: 10px;
+                                    box-sizing: border-box
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
-            p {
-                color: $white;
-                margin-bottom: 10px;
-            }
         }
+
     }
+
+
 
     #hp_panel_1 {
         #results_slider {
             @include respond(tab-port) {
                 margin-bottom: 60px;
             }
-
+            #hp-awards {
+                .slick-slide {
+                    flex-direction: column !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                }
+                .slick-arrow {
+                    z-index: 2 !important;
+                }
+            }
             .recent-posts {
                 display: grid;
                 background: $white;
@@ -409,12 +359,13 @@
 
         .panel_1_video {
             display: flex;
-            padding: 3%;
+            flex-direction: column;
+            padding: 30px;
             box-sizing: border-box;
             background: $white;
             flex-wrap: wrap;
             justify-content: space-between;
-
+            margin-top: 30px;
             .btn {
                 &:hover  {
                     background-color: $dkblue !important;
@@ -429,19 +380,15 @@
             }
 
             .video {
-                width: 55%;
+                width: 100%;
                 display: block;
-
-                @include respond(tab-port) {
-                    width:100%;
-                }
             }
 
             .content {
-                width: 38%;
+                width: 100%;
                 display: block;
                 padding-bottom: 0;
-
+                margin-top: 30px;
                 h3 {
                     margin-top: 0 !important;
                 }
@@ -737,15 +684,11 @@
 
         .menu-buttons {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
 
             .buttons {
-                width: 49%;
-
-                @include respond(tab-land) {
-                    width:100%;
-                }
-
+                width: 100%;
                 ul {
                     list-style-type: none;
                     margin: 0;
@@ -902,4 +845,4 @@
             }
         }
     }
-}
+}   
