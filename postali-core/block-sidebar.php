@@ -152,6 +152,30 @@ if ( is_page() ) :
     </div>
 <?php } ?>
 
+<div class="spacer-15"></div>
+
+<div class="about-block">
+    <div class="about-photo">
+    <?php 
+    $image = get_field('about_headshot','options');
+    if( !empty( $image ) ): ?>
+        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+    <?php endif; ?>
+    </div>
+    <div class="about-copy">
+        <?php the_field('about_copy','options'); ?>
+    <?php 
+    $link = get_field('about_link','options');
+    if( $link ): 
+        $link_url = $link['url'];
+        $link_title = $link['title'];
+        $link_target = $link['target'] ? $link['target'] : '_self';
+        ?>
+        <a class="btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+    <?php endif; ?>
+    </div>
+</div>
+
 <?php if( get_field('add_custom_sidebar_content') ) { ?>
     <div class="additional-copy-block">
         <?php the_field('additional_sidebar_content'); ?>

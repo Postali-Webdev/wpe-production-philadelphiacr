@@ -213,6 +213,10 @@ section {
 	box-sizing: border-box;
 	align-items: flex-start;
 
+    &.normal {
+        align-items: normal;
+    }
+
 	.column-20,
     .column-25,
     .column-50,

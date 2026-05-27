@@ -24,7 +24,7 @@ get_header(); ?>
 
     <section class="main-content">
         <div class="container">
-            <div class="columns">
+            <div class="columns normal">
                 <div class="column-66">
                     
                 <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>

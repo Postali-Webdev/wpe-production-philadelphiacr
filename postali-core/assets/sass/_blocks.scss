@@ -315,6 +315,42 @@
             display:none;
         }
     }
+
+    .about-block {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 150px;
+        
+        .about-photo {
+            height: 250px;
+            width: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                   object-fit: cover;
+            }
+        }
+
+        .about-copy {
+            background: #dddddd !important;
+            padding: 30px;
+
+            h3 {
+                font-size: 28px;
+                font-weight: 700;
+                margin-bottom: 15px !important;
+                margin-top: 0 !important;
+                font-style: normal;
+                color: $blk;
+            }
+
+            p {
+                margin-bottom: 15px;
+            }
+        }
+    }
 }
 
 // practice area parent blocks 

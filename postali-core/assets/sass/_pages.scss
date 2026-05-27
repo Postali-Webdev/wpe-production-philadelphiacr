@@ -195,6 +195,12 @@
             }
         }
     }
+
+    &.page-id-48 {
+        .about-block {
+            display: none;
+        }
+    }
 }
 
 .page-template-page-contact {

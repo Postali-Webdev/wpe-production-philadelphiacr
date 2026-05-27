@@ -18,7 +18,7 @@ get_header();?>
 
     <section class="main-content">
         <div class="container">
-            <div class="columns">
+            <div class="columns normal">
                 <div class="column-66 block">
                     <div class="article-single-featured-image">
                         <?php if ( has_post_thumbnail() ) { ?> <!-- If featured image set, use that, if not use options page default -->
